@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import json
 
 games_header = {
     'user-agent': 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -25,8 +26,15 @@ data_headers = {
 
 
 def get_json_data(url):
+    # print(f"get_json_data: START")
     raw_data = requests.get(url, headers=data_headers)
+    raw_data.encoding = 'utf-8'
+    # raw_data = str(raw_data.text).strip("'<>() ").replace('\'','\"')
+    # print(raw_data)
+    # data = json.loads(raw_data)
+    print(raw_data.status_code)
     json = raw_data.json()
+    # print(f"get_json_data: DONE")
     return json.get('resultSets')
 
 
@@ -37,16 +45,18 @@ def get_todays_games_json(url):
 
 
 def to_data_frame(data):
+    # print(f"to_data_frame: START")
     data_list = data[0]
+    # print(f"to_data_frame: RETURNING...")
     return pd.DataFrame(data=data_list.get('rowSet'), columns=data_list.get('headers'))
 
 
-def create_todays_games(input_list):
-    games = []
-    for game in input_list:
-        home = game.get('h')
-        away = game.get('v')
-        home_team = home.get('tc') + ' ' + home.get('tn')
-        away_team = away.get('tc') + ' ' + away.get('tn')
-        games.append([home_team, away_team])
-    return games
+# def create_todays_games(input_list):
+#     games = []
+#     for game in input_list:
+#         home = game.get('h')
+#         away = game.get('v')
+#         home_team = home.get('tc') + ' ' + home.get('tn')
+#         away_team = away.get('tc') + ' ' + away.get('tn')
+#         games.append([home_team, away_team])
+#     return games
