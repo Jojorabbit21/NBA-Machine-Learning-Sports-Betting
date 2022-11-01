@@ -22,8 +22,8 @@ for x in tqdm(range(100)):
         'booster': 'gbtree',
         'max_depth': 6,
         'min_child_weight': 3,
-        'gamma': 0.4,
-        'eta': 0.05,
+        'gamma': 0.5,
+        'eta': 0.01,
         'objective': 'multi:softprob',
         'num_class': 3,
         'eval_metric': 'logloss'

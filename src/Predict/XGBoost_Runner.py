@@ -15,7 +15,7 @@ xgb_ml = xgb.Booster()
 # xgb_ml.load_model('Models/XGBoost_Models/XGBoost_Model.json')
 xgb_ml.load_model('Models/XGBoost_Models/XGBoost_75.1%_ML-2.json')
 xgb_uo = xgb.Booster()
-xgb_uo.load_model('Models/XGBoost_Models/XGBoost_59.2%_UO-6.json')
+xgb_uo.load_model('Models/XGBoost_Models/XGBoost_74.1%_UO-6.json')
 # xgb_uo.load_model('Models/XGBoost_Models/XGBoost_Model_UO.json')
 
 
