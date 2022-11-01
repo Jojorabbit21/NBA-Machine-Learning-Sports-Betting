@@ -1,0 +1,212 @@
+{
+    "get": "odds",
+    "parameters": {
+        "league": "12",
+        "game": "326233",
+        "bet": "4",
+        "bookmaker": "12",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326233,
+                "date": "2022-10-31T23:00:00+00:00",
+                "time": "23:00",
+                "timestamp": 1667257200,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Game Finished",
+                    "short": "FT",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 135,
+                        "name": "Charlotte Hornets",
+                        "logo": "https://media.api-sports.io/basketball/teams/135.png"
+                    },
+                    "away": {
+                        "id": 157,
+                        "name": "Sacramento Kings",
+                        "logo": "https://media.api-sports.io/basketball/teams/157.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": 34,
+                        "quarter_2": 33,
+                        "quarter_3": 18,
+                        "quarter_4": 23,
+                        "over_time": null,
+                        "total": 108
+                    },
+                    "away": {
+                        "quarter_1": 24,
+                        "quarter_2": 28,
+                        "quarter_3": 37,
+                        "quarter_4": 26,
+                        "over_time": null,
+                        "total": 115
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 12,
+                    "name": "Pinnacle",
+                    "bets": [
+                        {
+                            "id": 4,
+                            "name": "Over/Under",
+                            "values": [
+                                {
+                                    "value": "Over 229",
+                                    "odd": "1.71"
+                                },
+                                {
+                                    "value": "Under 229",
+                                    "odd": "2.21"
+                                },
+                                {
+                                    "value": "Over 228.5",
+                                    "odd": "1.69"
+                                },
+                                {
+                                    "value": "Under 228.5",
+                                    "odd": "2.24"
+                                },
+                                {
+                                    "value": "Over 229.5",
+                                    "odd": "1.76"
+                                },
+                                {
+                                    "value": "Under 229.5",
+                                    "odd": "2.15"
+                                },
+                                {
+                                    "value": "Over 230.5",
+                                    "odd": "1.85"
+                                },
+                                {
+                                    "value": "Under 230.5",
+                                    "odd": "2.04"
+                                },
+                                {
+                                    "value": "Over 234",
+                                    "odd": "2.19"
+                                },
+                                {
+                                    "value": "Under 234",
+                                    "odd": "1.72"
+                                },
+                                {
+                                    "value": "Over 235",
+                                    "odd": "2.24"
+                                },
+                                {
+                                    "value": "Under 235",
+                                    "odd": "1.69"
+                                },
+                                {
+                                    "value": "Over 233",
+                                    "odd": "2.09"
+                                },
+                                {
+                                    "value": "Under 233",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Over 231",
+                                    "odd": "1.89"
+                                },
+                                {
+                                    "value": "Under 231",
+                                    "odd": "1.99"
+                                },
+                                {
+                                    "value": "Over 232",
+                                    "odd": "1.99"
+                                },
+                                {
+                                    "value": "Under 232",
+                                    "odd": "1.89"
+                                },
+                                {
+                                    "value": "Over 230",
+                                    "odd": "1.79"
+                                },
+                                {
+                                    "value": "Under 230",
+                                    "odd": "2.10"
+                                },
+                                {
+                                    "value": "Over 234.5",
+                                    "odd": "2.27"
+                                },
+                                {
+                                    "value": "Under 234.5",
+                                    "odd": "1.68"
+                                },
+                                {
+                                    "value": "Over 233.5",
+                                    "odd": "2.14"
+                                },
+                                {
+                                    "value": "Under 233.5",
+                                    "odd": "1.76"
+                                },
+                                {
+                                    "value": "Over 231.5",
+                                    "odd": "1.94"
+                                },
+                                {
+                                    "value": "Under 231.5",
+                                    "odd": "1.94"
+                                },
+                                {
+                                    "value": "Over 232.5",
+                                    "odd": "2.04"
+                                },
+                                {
+                                    "value": "Under 232.5",
+                                    "odd": "1.85"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

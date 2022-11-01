@@ -50,6 +50,13 @@ def to_data_frame(data):
     # print(f"to_data_frame: RETURNING...")
     return pd.DataFrame(data=data_list.get('rowSet'), columns=data_list.get('headers'))
 
+def decimal_to_american(odds):
+    odds = float(odds)
+    if odds >= 2:
+        return int((odds - 1) * 100)
+    elif odds < 2:
+        return int((-100) / (odds - 1))
+
 
 # def create_todays_games(input_list):
 #     games = []

@@ -52,6 +52,15 @@ def createTodaysGames(df, odds, date):
 
 def main():
     
+    if args.getodds:
+        from src.Odds.api import Odds
+        fetch = Odds()
+        today = datetime.today()
+        # today = today + timedelta(days=1)
+        today = today.strftime('%Y-%m-%d')
+        ids = fetch.request_data(today)
+        data = fetch.build_data(ids)
+    
     if args.creategames:
         from src.ProcessData.Create_Games import create_game
         create_game()
@@ -96,11 +105,12 @@ def main():
         
         # 내일 경기 돌릴때 사용
         if args.tomorrow:
+            from src.Odds.api import Odds
             data = get_json_data(data_url)
             df = to_data_frame(data)
             td = datetime.now()
-            est = td - timedelta(hours=14)
-            fd = est.strftime('%Y-%m-%d')
+            # est = td - timedelta(hours=14)
+            fd = td.strftime('%Y-%m-%d')
             # fd = '2022-10-24'
             target_season = '2022-23'
             odds = scrape_odds(fd)
@@ -132,5 +142,6 @@ if __name__ == "__main__":
     parser.add_argument('-processodds', action='store_true', help='Process Odds Data')
     parser.add_argument('-getdata', action='store_true', help='Get Data')
     parser.add_argument('-creategames', action='store_true', help='Create Games')
+    parser.add_argument('-getodds', action='store_true', help='Get Odds')
     args = parser.parse_args()
     main()

@@ -1,0 +1,188 @@
+{
+    "get": "odds",
+    "parameters": {
+        "league": "12",
+        "game": "326236",
+        "bet": "4",
+        "bookmaker": "12",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326236,
+                "date": "2022-11-01T00:00:00+00:00",
+                "time": "00:00",
+                "timestamp": 1667260800,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Game Finished",
+                    "short": "FT",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 148,
+                        "name": "Milwaukee Bucks",
+                        "logo": "https://media.api-sports.io/basketball/teams/148.png"
+                    },
+                    "away": {
+                        "id": 140,
+                        "name": "Detroit Pistons",
+                        "logo": "https://media.api-sports.io/basketball/teams/140.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": 34,
+                        "quarter_2": 26,
+                        "quarter_3": 28,
+                        "quarter_4": 22,
+                        "over_time": null,
+                        "total": 110
+                    },
+                    "away": {
+                        "quarter_1": 23,
+                        "quarter_2": 29,
+                        "quarter_3": 25,
+                        "quarter_4": 31,
+                        "over_time": null,
+                        "total": 108
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 12,
+                    "name": "Pinnacle",
+                    "bets": [
+                        {
+                            "id": 4,
+                            "name": "Over/Under",
+                            "values": [
+                                {
+                                    "value": "Over 228",
+                                    "odd": "1.76"
+                                },
+                                {
+                                    "value": "Under 228",
+                                    "odd": "2.15"
+                                },
+                                {
+                                    "value": "Over 229",
+                                    "odd": "1.85"
+                                },
+                                {
+                                    "value": "Under 229",
+                                    "odd": "2.04"
+                                },
+                                {
+                                    "value": "Over 227.5",
+                                    "odd": "1.72"
+                                },
+                                {
+                                    "value": "Under 227.5",
+                                    "odd": "2.20"
+                                },
+                                {
+                                    "value": "Over 228.5",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Under 228.5",
+                                    "odd": "2.09"
+                                },
+                                {
+                                    "value": "Over 229.5",
+                                    "odd": "1.89"
+                                },
+                                {
+                                    "value": "Under 229.5",
+                                    "odd": "1.99"
+                                },
+                                {
+                                    "value": "Over 230.5",
+                                    "odd": "1.99"
+                                },
+                                {
+                                    "value": "Under 230.5",
+                                    "odd": "1.89"
+                                },
+                                {
+                                    "value": "Over 231",
+                                    "odd": "2.04"
+                                },
+                                {
+                                    "value": "Under 231",
+                                    "odd": "1.84"
+                                },
+                                {
+                                    "value": "Over 232",
+                                    "odd": "2.15"
+                                },
+                                {
+                                    "value": "Under 232",
+                                    "odd": "1.76"
+                                },
+                                {
+                                    "value": "Over 230",
+                                    "odd": "1.94"
+                                },
+                                {
+                                    "value": "Under 230",
+                                    "odd": "1.94"
+                                },
+                                {
+                                    "value": "Over 231.5",
+                                    "odd": "2.09"
+                                },
+                                {
+                                    "value": "Under 231.5",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Over 232.5",
+                                    "odd": "2.20"
+                                },
+                                {
+                                    "value": "Under 232.5",
+                                    "odd": "1.72"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

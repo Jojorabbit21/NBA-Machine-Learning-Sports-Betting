@@ -1,0 +1,108 @@
+{
+    "get": "odds",
+    "parameters": {
+        "league": "12",
+        "game": "326232",
+        "bet": "2",
+        "bookmaker": "12",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326232,
+                "date": "2022-10-31T23:00:00+00:00",
+                "time": "23:00",
+                "timestamp": 1667257200,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Game Finished",
+                    "short": "FT",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 161,
+                        "name": "Washington Wizards",
+                        "logo": "https://media.api-sports.io/basketball/teams/161.png"
+                    },
+                    "away": {
+                        "id": 154,
+                        "name": "Philadelphia 76ers",
+                        "logo": "https://media.api-sports.io/basketball/teams/154.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": 28,
+                        "quarter_2": 24,
+                        "quarter_3": 21,
+                        "quarter_4": 38,
+                        "over_time": null,
+                        "total": 111
+                    },
+                    "away": {
+                        "quarter_1": 30,
+                        "quarter_2": 22,
+                        "quarter_3": 34,
+                        "quarter_4": 32,
+                        "over_time": null,
+                        "total": 118
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 12,
+                    "name": "Pinnacle",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.24"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.72"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
