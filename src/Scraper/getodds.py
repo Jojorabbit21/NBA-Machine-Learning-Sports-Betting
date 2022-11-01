@@ -91,6 +91,8 @@ def scrape_odds(date):
     df.drop(debris, inplace=True) 
     df.reset_index(drop=True, inplace=True)
     
+    df.to_csv('history.csv', mode='a', header=False, index=False)
+    
     print(f"scraping_odds: DONE...")
     print(df)
     return df

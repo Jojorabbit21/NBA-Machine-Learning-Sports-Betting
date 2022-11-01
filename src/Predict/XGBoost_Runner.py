@@ -12,10 +12,11 @@ from src.ScorePrediction.model import PredictScore
 # from src.Utils.tools import get_json_data, to_data_frame, get_todays_games_json, create_todays_games
 init()
 xgb_ml = xgb.Booster()
-xgb_ml.load_model('Models/XGBoost_Models/XGBoost_Model.json')
+# xgb_ml.load_model('Models/XGBoost_Models/XGBoost_Model.json')
+xgb_ml.load_model('Models/XGBoost_Models/XGBoost_75.1%_ML-2.json')
 xgb_uo = xgb.Booster()
-#xgb_uo.load_model('Models/XGBoost_Models/XGBoost_57.9%_UO.json')
-xgb_uo.load_model('Models/XGBoost_Models/XGBoost_Model_UO.json')
+xgb_uo.load_model('Models/XGBoost_Models/XGBoost_59.2%_UO-6.json')
+# xgb_uo.load_model('Models/XGBoost_Models/XGBoost_Model_UO.json')
 
 
 def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, date):

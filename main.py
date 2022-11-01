@@ -88,7 +88,6 @@ def main():
             games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, td)
             print("---------------XGBoost Model Predictions---------------")
             result_xd, result_xe = XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
-            print(result_xd)
             result_xdf = pd.DataFrame(result_xd)
             result_xedf = pd.DataFrame(result_xe)
             result_xgb = pd.concat([result_xdf, result_xedf], axis=1)
