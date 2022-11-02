@@ -2,13 +2,15 @@ import time
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+import datetime
 from keras.callbacks import TensorBoard, EarlyStopping, ModelCheckpoint
 
-current_time = str(time.time())
+
+current_time = str(datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S'))
 
 tensorboard = TensorBoard(log_dir='./Logs/{}'.format(current_time))
 earlyStopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='min')
-mcp_save = ModelCheckpoint('./Models/Trained-Model-OU-' + current_time, save_best_only=True, monitor='val_loss', mode='min')
+mcp_save = ModelCheckpoint('./Models/Trained-Model-OU-' + current_time + '/best_model.h5', save_best_only=True, monitor='val_loss', mode='min')
 
 data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-Test.xlsx')
 OU = data['OU-Cover']

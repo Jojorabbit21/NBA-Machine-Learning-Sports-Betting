@@ -2,13 +2,18 @@ import time
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+import matplotlib.pyplot as plt
+import datetime
 from keras.callbacks import TensorBoard, EarlyStopping, ModelCheckpoint
 
-current_time = str(time.time())
+current_time = str(datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S'))
+
+fig, loss_ax = plt.subplots()
+acc_ax = loss_ax.twinx()
 
 tensorboard = TensorBoard(log_dir='./Logs/{}'.format(current_time))
 earlyStopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='min')
-mcp_save = ModelCheckpoint('./Models/Trained-Model-ML-' + current_time, save_best_only=True, monitor='val_loss', mode='min')
+mcp_save = ModelCheckpoint('./Models/Trained-Model-ML-' + current_time + '/best_model.h5', save_best_only=True, monitor='val_loss', mode='min')
 
 data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-Test.xlsx')
 scores = data['Score']
@@ -29,7 +34,26 @@ model.add(tf.keras.layers.Dense(128, activation=tf.nn.relu6))
 model.add(tf.keras.layers.Dense(2, activation=tf.nn.softmax))
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=50, validation_split=0.1, batch_size=32,
-          callbacks=[tensorboard, earlyStopping, mcp_save])
+history = model.fit(x_train, y_train, epochs=50, validation_split=0.1, batch_size=32,
+          callbacks=[
+                    tensorboard,
+                    earlyStopping,
+                    mcp_save
+                    ]
+          )
+
+# loss_ax.plot(history.history['loss'], 'y', label='train loss')
+# loss_ax.plot(history.history['val_loss'], 'r', label='val loss')
+# acc_ax.plot(history.history['accuracy'], 'b', label='train accuracy')
+# acc_ax.plot(history.history['val_accuracy'], 'g', label='val accuracy')
+
+# loss_ax.set_xlabel('epoch')
+# loss_ax.set_ylabel('loss')
+# acc_ax.set_xlabel('accuracy')
+
+# loss_ax.legend(loc = 'upper left')
+# acc_ax.legend(loc = 'lower left')
+
+# plt.show()
 
 print('Done')

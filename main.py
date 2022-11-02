@@ -1,9 +1,12 @@
+import os
 import argparse
 import pandas as pd
 
 from datetime import datetime, timedelta, timezone
 from src.Utils.Dictionaries import team_index_current, team_initials
 from src.Utils.tools import get_json_data, to_data_frame
+
+os.environ['CUDA_VISIBLE_DEVICES'] = "-1"
 
 todays_games_url = 'https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2022/scores/00_todays_scores.json'
 data_url = 'https://stats.nba.com/stats/leaguedashteamstats?' \
