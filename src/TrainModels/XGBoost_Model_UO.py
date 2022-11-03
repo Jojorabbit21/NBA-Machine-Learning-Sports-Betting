@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import numpy as np
 
-data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-Test.xlsx')
+data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-2020-22.xlsx')
 OU = data['OU-Cover']
 data.drop(['Score', 'Home-Team-Win', 'Unnamed: 0', 'TEAM_NAME', 'Date', 'TEAM_NAME.1', 'Date.1', 'OU-Cover'], axis=1,
           inplace=True)
@@ -22,12 +22,22 @@ for x in tqdm(range(100)):
         'booster': 'gbtree',
         'max_depth': 6,
         'min_child_weight': 3,
-        'gamma': 0.5,
+        'gamma': 1,
         'eta': 0.01,
         'objective': 'multi:softprob',
         'num_class': 3,
         'eval_metric': 'logloss'
     }
+    # param = { #UO-7
+    #     'booster': 'gbtree',
+    #     'max_depth': 6,
+    #     'min_child_weight': 3,
+    #     'gamma': 1,
+    #     'eta': 0.01,
+    #     'objective': 'multi:softprob',
+    #     'num_class': 3,
+    #     'eval_metric': 'logloss'
+    # }
     epochs = 300
 
     model = xgb.train(param, train, epochs)
@@ -40,4 +50,4 @@ for x in tqdm(range(100)):
 
     acc = round(accuracy_score(y_test, y), 3) * 100
     print(acc)
-    model.save_model('./Models/XGBoost_{}%_UO-6.json'.format(acc))
+    model.save_model('./Models/XGBoost_{}%_UO-7.json'.format(acc))

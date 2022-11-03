@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import numpy as np
 
-data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-Test.xlsx')
+data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-2020-22.xlsx')
 margin = data['Home-Team-Win']
 data.drop(['Score', 'Home-Team-Win', 'Unnamed: 0', 'TEAM_NAME', 'Date', 'TEAM_NAME.1', 'Date.1', 'OU-Cover', 'OU'],
           axis=1, inplace=True)
@@ -42,6 +42,13 @@ for x in tqdm(range(100)):
     train = xgb.DMatrix(x_train, label=y_train)
     test = xgb.DMatrix(x_test, label=y_test)
 
+    # param = { #ML-4
+    #     'max_depth': 6,
+    #     'eta': 0.01,
+    #     'eval_metric': 'logloss',
+    #     'objective': 'multi:softprob',
+    #     'num_class': 2
+    # }
     param = {
         'max_depth': 6,
         'eta': 0.01,

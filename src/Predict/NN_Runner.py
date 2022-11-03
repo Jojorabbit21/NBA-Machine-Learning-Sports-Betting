@@ -9,8 +9,8 @@ from src.ScorePrediction.model import PredictScore
 
 init()
 
-model = tf.keras.models.load_model('Models/NN_Models/Trained-Model-ML-2022-11-02_141052/best_model.h5')
-ou_model = tf.keras.models.load_model('Models/NN_Models/Trained-Model-OU-2022-11-02_141528/best_model.h5')
+model = tf.keras.models.load_model('Models/NN_Models/Trained-Model-ML-2/best_model.h5')
+ou_model = tf.keras.models.load_model('Models/NN_Models/Trained-Model-OU-2/best_model.h5')
 
 def nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, date):
     ml_predictions_array = []
