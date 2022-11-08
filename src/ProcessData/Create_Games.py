@@ -17,9 +17,10 @@ season_array = [
                 # "2016-17", 
                 # "2017-18", 
                 # "2018-19", 
-                "2019-20", # -> 데이터 오류로 미사용
+                # "2019-20", # -> 데이터 오류로 미사용
                 # "2020-21", 
                 # "2021-22"
+                "2022-23"
                 ]
 odds_directory = os.fsdecode('Odds-Data/Odds-Data-Clean')
 df = pd.DataFrame
@@ -53,7 +54,7 @@ def create_game():
             team_data_file = month + '-' + day + '-' + year + '.xlsx'
             
             data_frame = pd.read_excel(team_data_directory + '/' + team_data_file)
-
+            print(data_frame)
             if len(data_frame.index) == 30:
                 score = float(row[9])
                 ou = row[5]

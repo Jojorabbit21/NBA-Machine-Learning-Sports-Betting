@@ -26,7 +26,7 @@ def createTodaysGames(df, odds, date):
     todays_games_uo = []
     home_team_odds = []
     away_team_odds = []
-    
+
     print(f"create_todays_games: REORGANIZING DATAS...")
     
     for game in range(len(odds)):
@@ -70,11 +70,11 @@ def main():
         
     if args.getdata:
         from src.ProcessData.Get_Data import create_data
-        create_data(2012,2012)
+        create_data(2022,2022)
     
     if args.processodds:
         from src.ProcessData.Process_Odds_Data import create_odds_data
-        create_odds_data("2020", "2022")
+        create_odds_data("2022", "2023")
     
     if args.history | args.tomorrow:
         import tensorflow as tf
@@ -87,7 +87,7 @@ def main():
             df = to_data_frame(data)
             td = input("Date(YYYY-MM-DD): ")
             target_season = input("Target Season: ")
-            odds = pd.read_csv('history.csv')
+            odds = pd.read_csv('2022-23.csv')
             games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, td)
             print("---------------XGBoost Model Predictions---------------")
             result_xd, result_xe = XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)

@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import numpy as np
 
-data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-2020-22.xlsx')
+data = pd.read_excel('./Datasets/Full-Data-Set-UnderOver-2020-2023.xlsx')
 margin = data['Home-Team-Win']
 data.drop(['Score', 'Home-Team-Win', 'Unnamed: 0', 'TEAM_NAME', 'Date', 'TEAM_NAME.1', 'Date.1', 'OU-Cover', 'OU'],
           axis=1, inplace=True)
@@ -67,4 +67,4 @@ for x in tqdm(range(100)):
 
     acc = round(accuracy_score(y_test, y), 3) * 100
     print(acc)
-    model.save_model('./Models/XGBoost_{}%_ML-3.json'.format(acc))
+    model.save_model('./Models/XGBoost_{}%_ML-4.json'.format(acc))

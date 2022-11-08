@@ -13,9 +13,9 @@ from src.ScorePrediction.model import PredictScore
 init()
 xgb_ml = xgb.Booster()
 # xgb_ml.load_model('Models/XGBoost_Models/XGBoost_Model.json')
-xgb_ml.load_model('Models/XGBoost_Models/XGBoost_79.1%_ML-4.json')
+xgb_ml.load_model('Models/XGBoost_Models/XGBoost_77.9%_ML-5.json')
 xgb_uo = xgb.Booster()
-xgb_uo.load_model('Models/XGBoost_Models/XGBoost_72.3%_UO-7.json')
+xgb_uo.load_model('Models/XGBoost_Models/XGBoost_72.6%_UO-8.json')
 # xgb_uo.load_model('Models/XGBoost_Models/XGBoost_Model_UO.json')
 
 
