@@ -19,13 +19,9 @@ data = data.astype(float)
 
 x_train, x_test, y_train, y_test = train_test_split(data, margin, test_size=.1)
 
-cv = KFold(n_splits=5)
-accuracies = list()
-max_attributes = x_test.shape[1]
-depth_range = range(1, max_attributes)
+rand_clf = RandomForestClassifier(criterion='entropy', bootstrap=True, random_state=42, max_depth=5)
+rand_clf.fit(x_train, y_train)
+y_pred = rand_clf.predict(x_test)
 
-for depth in depth_range:
-  fold_accuracy = []
-  rand_clf = RandomForestClassifier(max_depth=depth)
-  for train_fold, valid_fold in cv.split(x_train):
-    
+print('train acc: {: .3f}'.format(rand_clf.score(x_train, y_train)))
+print('test acc: {: .3f}'.format(rand_clf.score(x_test, y_test)))
