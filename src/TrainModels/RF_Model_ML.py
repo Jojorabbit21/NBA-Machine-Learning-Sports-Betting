@@ -17,11 +17,13 @@ data = data.astype(float)
 
 # for x in tqdm(range(100)):
 
-x_train, x_test, y_train, y_test = train_test_split(data, margin, test_size=.1)
+for x in tqdm(range(100)):
+  x_train, x_test, y_train, y_test = train_test_split(data, margin, test_size=.1)
 
-rand_clf = RandomForestClassifier(criterion='entropy', bootstrap=True, random_state=42, max_depth=5)
-rand_clf.fit(x_train, y_train)
-y_pred = rand_clf.predict(x_test)
+  rand_clf = RandomForestClassifier(criterion='entropy', bootstrap=True, random_state=42, max_depth=5)
+  rand_clf.fit(x_train, y_train)
+  y_pred = rand_clf.predict(x_test)
 
-print('train acc: {: .3f}'.format(rand_clf.score(x_train, y_train)))
-print('test acc: {: .3f}'.format(rand_clf.score(x_test, y_test)))
+  print('train acc: {: .3f}'.format(rand_clf.score(x_train, y_train)))
+  print('test acc: {: .3f}'.format(rand_clf.score(x_test, y_test)))
+  
