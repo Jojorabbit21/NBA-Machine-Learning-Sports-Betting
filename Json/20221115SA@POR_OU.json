@@ -1,0 +1,108 @@
+{
+    "get": "odds",
+    "parameters": {
+        "game": "326345",
+        "bet": "4",
+        "league": "12",
+        "bookmaker": "26",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326345,
+                "date": "2022-11-16T03:00:00+00:00",
+                "time": "03:00",
+                "timestamp": 1668567600,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 156,
+                        "name": "Portland Trail Blazers",
+                        "logo": "https://media.api-sports.io/basketball/teams/156.png"
+                    },
+                    "away": {
+                        "id": 158,
+                        "name": "San Antonio Spurs",
+                        "logo": "https://media.api-sports.io/basketball/teams/158.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": null,
+                        "quarter_2": null,
+                        "quarter_3": null,
+                        "quarter_4": null,
+                        "over_time": null,
+                        "total": null
+                    },
+                    "away": {
+                        "quarter_1": null,
+                        "quarter_2": null,
+                        "quarter_3": null,
+                        "quarter_4": null,
+                        "over_time": null,
+                        "total": null
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 26,
+                    "name": "WilliamHill",
+                    "bets": [
+                        {
+                            "id": 4,
+                            "name": "Over/Under",
+                            "values": [
+                                {
+                                    "value": "Over 224",
+                                    "odd": "1.91"
+                                },
+                                {
+                                    "value": "Under 224",
+                                    "odd": "1.91"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

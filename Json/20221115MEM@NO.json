@@ -1,0 +1,167 @@
+{
+    "get": "odds",
+    "parameters": {
+        "league": "12",
+        "game": "326342",
+        "bet": "2",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326342,
+                "date": "2022-11-16T00:30:00+00:00",
+                "time": "00:30",
+                "timestamp": 1668558600,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 150,
+                        "name": "New Orleans Pelicans",
+                        "logo": "https://media.api-sports.io/basketball/teams/150.png"
+                    },
+                    "away": {
+                        "id": 146,
+                        "name": "Memphis Grizzlies",
+                        "logo": "https://media.api-sports.io/basketball/teams/146.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": null,
+                        "quarter_2": null,
+                        "quarter_3": null,
+                        "quarter_4": null,
+                        "over_time": null,
+                        "total": null
+                    },
+                    "away": {
+                        "quarter_1": null,
+                        "quarter_2": null,
+                        "quarter_3": null,
+                        "quarter_4": null,
+                        "over_time": null,
+                        "total": null
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 7,
+                    "name": "10Bet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "2.10"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 30,
+                    "name": "Netbet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "2.05"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "1xBet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "1.83"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "2.14"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 28,
+                    "name": "ComeOn",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "1.80"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "2.05"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "get": "odds",
+    "parameters": {
+        "league": "12",
+        "game": "326335",
+        "bet": "2",
+        "season": "2022-2023"
+    },
+    "errors": [],
+    "results": 1,
+    "response": [
+        {
+            "league": {
+                "id": 12,
+                "name": "NBA",
+                "type": "League",
+                "season": "2022-2023",
+                "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+            },
+            "country": {
+                "id": 5,
+                "name": "USA",
+                "code": "US",
+                "flag": "https://media.api-sports.io/flags/us.svg"
+            },
+            "game": {
+                "id": 326335,
+                "date": "2022-11-15T00:00:00+00:00",
+                "time": "00:00",
+                "timestamp": 1668470400,
+                "timezone": "UTC",
+                "stage": null,
+                "week": null,
+                "status": {
+                    "long": "Game Finished",
+                    "short": "FT",
+                    "timer": null
+                },
+                "league": {
+                    "id": 12,
+                    "name": "NBA",
+                    "type": "League",
+                    "season": "2022-2023",
+                    "logo": "https://media.api-sports.io/basketball/leagues/12.png"
+                },
+                "country": {
+                    "id": 5,
+                    "name": "USA",
+                    "code": "US",
+                    "flag": "https://media.api-sports.io/flags/us.svg"
+                },
+                "teams": {
+                    "home": {
+                        "id": 140,
+                        "name": "Detroit Pistons",
+                        "logo": "https://media.api-sports.io/basketball/teams/140.png"
+                    },
+                    "away": {
+                        "id": 159,
+                        "name": "Toronto Raptors",
+                        "logo": "https://media.api-sports.io/basketball/teams/159.png"
+                    }
+                },
+                "scores": {
+                    "home": {
+                        "quarter_1": 23,
+                        "quarter_2": 28,
+                        "quarter_3": 26,
+                        "quarter_4": 34,
+                        "over_time": null,
+                        "total": 111
+                    },
+                    "away": {
+                        "quarter_1": 27,
+                        "quarter_2": 31,
+                        "quarter_3": 30,
+                        "quarter_4": 27,
+                        "over_time": null,
+                        "total": 115
+                    }
+                }
+            },
+            "bookmakers": [
+                {
+                    "id": 26,
+                    "name": "WilliamHill",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.70"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.50"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Bet365",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.70"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.50"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Marathon Bet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.74"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.49"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "name": "Pinnacle",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.64"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.54"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "1xBet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.80"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.52"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 22,
+                    "name": "Sportingbet",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.70"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.48"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 28,
+                    "name": "ComeOn",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.65"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.47"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Betcris",
+                    "bets": [
+                        {
+                            "id": 2,
+                            "name": "Home/Away",
+                            "values": [
+                                {
+                                    "value": "Home",
+                                    "odd": "2.56"
+                                },
+                                {
+                                    "value": "Away",
+                                    "odd": "1.52"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

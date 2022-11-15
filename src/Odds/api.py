@@ -15,13 +15,20 @@ API_URL = {
 API_LEAGUE = 12
 API_TZ = 'Asia/Seoul'
 API_SEASON = '2022-2023'
-API_BOOKMAKER = 12 # Pinnacle
+API_BOOKMAKER = [
+  12, # Pinnacle
+  3, # 1xbet
+  4, # bet365
+  19, # Unibet
+  26, # Williamhill
+]
 BETTYPE = [
   2, # 2way
   4  # Ou
 ]
 
 class Odds():
+  remain:int = 0
   def request_data(self, date):
     if date is None:
       date = datetime.datetime.today().strftime("%Y-%m-%d")
@@ -49,8 +56,7 @@ class Odds():
       querystring = { 
                       "league": API_LEAGUE,
                       "season": API_SEASON,
-                      "game": id,
-                      "bookmaker": API_BOOKMAKER,
+                      "game": int(id),
                       "bet": BETTYPE[0]
                      }
       headers = {
@@ -58,47 +64,90 @@ class Odds():
                   "X-RapidAPI-Host": API_HOST,
                 }
       response = requests.get(API_URL['odds'], headers=headers, params=querystring)
-      data = response.json()['response']
-      home = full_to_abbr[data[0]['game']['teams']['home']['name']]
-      away = full_to_abbr[data[0]['game']['teams']['away']['name']]
-      hteam.append(home)
-      ateam.append(away)
-      hodds.append(
-        decimal_to_american(data[0]['bookmakers'][0]['bets'][0]['values'][0]['odd'])
-      )
-      aodds.append(
-        decimal_to_american(data[0]['bookmakers'][0]['bets'][0]['values'][1]['odd'])
-      )
-      filename = f"Json/{date}{home}@{away}.json"
-      with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(response.json(), file, indent=4)
-      
-      # Get Total
-      querystring = { 
-                      "league": API_LEAGUE,
-                      "season": API_SEASON,
-                      "game": id,
-                      "bookmaker": API_BOOKMAKER,
-                      "bet": BETTYPE[1]
-                     }
-      response = requests.get(API_URL['odds'], headers=headers, params=querystring)
-      data = response.json()['response']
-      filename = f"Json/{date}{home}@{away}_OU.json"
-      with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(response.json(), file, indent=4)
+      if response.status_code == 200:
+        data = response.json()
+        try:
+          home = full_to_abbr[data['response'][0]['game']['teams']['home']['name']]
+          hteam.append(home)
+        except:
+          hteam.append(0)
+          print('no data for {}'.format(id))
+        try:
+          away = full_to_abbr[data['response'][0]['game']['teams']['away']['name']]
+          ateam.append(away)
+        except:
+          ateam.append(0)
+          print('no data for {}'.format(id))
+          
+        try:
+          for bookie in data['response'][0]['bookmakers']:
+            if bookie['id'] in API_BOOKMAKER:
+              try:
+                ho = bookie['bets'][0]['values'][0]['odd']
+                hodds.append(decimal_to_american(ho))
+              except:
+                hodds.append(0)
+                print('no home odds for {}'.format(id))
+              try:
+                ao = bookie['bets'][0]['values'][1]['odd']
+                aodds.append(decimal_to_american(ao))
+              except:
+                aodds.append(0)
+                print('no away odds for {}'.format(id))
+              break
+            
+          filename = f"Json/{date}{away}@{home}.json"
+          with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(response.json(), file, indent=4)
+        except:
+          print('no data for {}'.format(id))
+          
+        # Get Total
+        querystring = { 
+                        "league": API_LEAGUE,
+                        "season": API_SEASON,
+                        "game": id,
+                        "bookmaker": API_BOOKMAKER,
+                        "bet": BETTYPE[1]
+                      }
+        response = requests.get(API_URL['odds'], headers=headers, params=querystring)
+        if response.status_code == 200:
+          data = response.json()
+          self.remain = response.headers['x-ratelimit-requests-remaining']
+          try:
+            for bookie in data['response'][0]['bookmakers']:
+              if bookie['id'] in API_BOOKMAKER:
+                for bets in bookie['bets'][0]['values']:
+                  line = bets['value']
+                  odd = float(bets['odd'])
+                  if odd >= 1.85 or odd <= 2:
+                    line = line.split(" ")[1]
+                    total.append(line)
+                    break
+
+            filename = f"Json/{date}{away}@{home}_OU.json"
+            with open(filename, 'w', encoding='utf-8') as file:
+              json.dump(response.json(), file, indent=4)
+          except:
+            total.append(0)
+            print('no total data for {}'.format(id))
+          
+      else:
+        print(response.status_code)
       
     df = pd.DataFrame()
     df['Visit'] = ateam
     df['Home'] = hteam
     df['V_Odd'] = aodds
     df['H_Odd'] = hodds
-    # df['OU'] = total    
-    
+    df['OU'] = total    
+    print(df)
+    print('API Quota remain : {}'.format(self.remain))
     # condition = (df.V_Odd == 0) | (df.H_Odd == 0) | (df.OU == 0)
     # print(f"scraping_odds: SANITIZING DATAFRAME...")
     # debris = df[condition].index
     # df.drop(debris, inplace=True) 
     # df.reset_index(drop=True, inplace=True)
+    # print(df)
     
-    print(df)
     return df

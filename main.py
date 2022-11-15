@@ -59,10 +59,10 @@ def main():
         from src.Odds.api import Odds
         fetch = Odds()
         today = datetime.today()
-        # today = today + timedelta(days=1)
+        today = today + timedelta(days=1)
         today = today.strftime('%Y-%m-%d')
         ids = fetch.request_data(today)
-        data = fetch.build_data(ids)
+        # data = fetch.build_data(ids)
     
     if args.creategames:
         from src.ProcessData.Create_Games import create_game
