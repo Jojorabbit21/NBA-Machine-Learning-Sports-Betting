@@ -76,7 +76,7 @@ def main():
         from src.ProcessData.Process_Odds_Data import create_odds_data
         create_odds_data("2022", "2023")
     
-    if args.history | args.tomorrow:
+    if args.history | args.tomorrow | args.pergame:
         import tensorflow as tf
         from src.Upload.gs import update_dataframe
         from src.Predict import NN_Runner, XGBoost_Runner
@@ -133,14 +133,41 @@ def main():
             print("-------------------------------------------------------")
             result = pd.concat([result_xgb, result_nn], axis=0)
             update_dataframe(result, target_season)
-
-
+        
+        if args.pergame:
+            data = get_json_data(data_url)
+            df = to_data_frame(data)
+            td = input("Date(YYYY-MM-DD): ")
+            match = []
+            match.append(input("Home(Abbr): "))
+            match.append(input("Away(Abbr): "))
+            match.append(input("Home Moneyline: "))
+            match.append(input("Away Moneyline: "))
+            match.append(input("Total: "))
+            print(match)
+            odds = pd.DataFrame([match], columns=['Visit', 'Home', 'V_Odd', 'H_Odd', 'OU'])
+            games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, td)
+            print("---------------XGBoost Model Predictions---------------")
+            result_xd, result_xe = XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
+            result_xdf = pd.DataFrame(result_xd)
+            result_xedf = pd.DataFrame(result_xe)
+            result_xgb = pd.concat([result_xdf, result_xedf], axis=1)
+            print("-------------------------------------------------------")
+            data = tf.keras.utils.normalize(data, axis=1)
+            print("------------Neural Network Model Predictions-----------")
+            result_nd, result_ne = NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
+            result_ndf = pd.DataFrame(result_nd)
+            result_nedf = pd.DataFrame(result_ne)
+            result_nn = pd.concat([result_ndf, result_nedf], axis=1)
+            print("-------------------------------------------------------")
+            result = pd.concat([result_xgb, result_nn], axis=0)
         
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Model to Run')
     parser.add_argument('-tomorrow', action='store_true', help='Run Tomorrow matches')
     parser.add_argument('-history', action='store_true', help='Run history matches')
+    parser.add_argument('-pergame', action='store_true', help='Run per game prediction')
     parser.add_argument('-processodds', action='store_true', help='Process Odds Data')
     parser.add_argument('-getdata', action='store_true', help='Get Data')
     parser.add_argument('-creategames', action='store_true', help='Create Games')
