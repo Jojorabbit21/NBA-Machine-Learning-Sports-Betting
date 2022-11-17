@@ -17,6 +17,8 @@ data_url = 'https://stats.nba.com/stats/leaguedashteamstats?' \
            'PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&' \
            'Season=2022-23&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&' \
            'StarterBench=&TeamID=0&TwoWay=0&VsConference=&VsDivision='
+           
+TARGET_SEASON = '2022-23'
 
 def createTodaysGames(df, odds, date):
     
@@ -114,7 +116,7 @@ def main():
             # est = td - timedelta(hours=14)
             fd = td.strftime('%Y-%m-%d')
             # fd = '2022-10-24'
-            target_season = '2022-23'
+            target_season = TARGET_SEASON
             odds = scrape_odds(fd)
             games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, fd)
             print("---------------XGBoost Model Predictions---------------")
@@ -138,6 +140,7 @@ def main():
             data = get_json_data(data_url)
             df = to_data_frame(data)
             td = input("Date(YYYY-MM-DD): ")
+            target_season = TARGET_SEASON
             match = []
             match.append(input("Home(Abbr): "))
             match.append(input("Away(Abbr): "))
@@ -161,6 +164,7 @@ def main():
             result_nn = pd.concat([result_ndf, result_nedf], axis=1)
             print("-------------------------------------------------------")
             result = pd.concat([result_xgb, result_nn], axis=0)
+            update_dataframe(result, target_season)
         
 
 if __name__ == "__main__":
