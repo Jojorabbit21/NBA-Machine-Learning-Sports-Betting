@@ -113,7 +113,7 @@ def main():
             data = get_json_data(data_url)
             df = to_data_frame(data)
             td = datetime.now()
-            # est = td - timedelta(hours=14)
+            est = td - timedelta(hours=14)
             fd = td.strftime('%Y-%m-%d')
             # fd = '2022-10-24'
             target_season = TARGET_SEASON
