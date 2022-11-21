@@ -139,16 +139,27 @@ def main():
         if args.pergame:
             data = get_json_data(data_url)
             df = to_data_frame(data)
-            td = input("Date(YYYY-MM-DD): ")
             target_season = TARGET_SEASON
-            match = []
-            match.append(input("Home(Abbr): "))
-            match.append(input("Away(Abbr): "))
-            match.append(input("Home Moneyline: "))
-            match.append(input("Away Moneyline: "))
-            match.append(input("Total: "))
-            print(match)
-            odds = pd.DataFrame([match], columns=['Visit', 'Home', 'V_Odd', 'H_Odd', 'OU'])
+            match_df = []
+            
+            count = 1
+            while count > 0:
+                match = []
+                td = input("Date(YYYY-MM-DD): ")
+                match.append(input("Away(Abbr): "))
+                match.append(input("Home(Abbr): "))
+                match.append(input("Away Moneyline: "))
+                match.append(input("Home Moneyline: "))
+                match.append(input("Total: "))
+                match_df.append(match)
+                print(match_df)
+                yn = input("Add more game? (Y/N) : ")
+                if yn == "N":
+                    break
+                
+            odds = pd.DataFrame(match_df, 
+                                columns=['Visit', 'Home', 'V_Odd', 'H_Odd', 'OU']
+                                )
             games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, td)
             print("---------------XGBoost Model Predictions---------------")
             result_xd, result_xe = XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
@@ -165,7 +176,7 @@ def main():
             print("-------------------------------------------------------")
             result = pd.concat([result_xgb, result_nn], axis=0)
             update_dataframe(result, target_season)
-        
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Model to Run')
