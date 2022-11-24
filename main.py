@@ -89,7 +89,7 @@ def main():
             df = to_data_frame(data)
             td = input("Date(YYYY-MM-DD): ")
             target_season = input("Target Season: ")
-            odds = pd.read_csv('2022-23.csv')
+            odds = pd.read_csv('history.csv')
             games, data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(df, odds, td)
             print("---------------XGBoost Model Predictions---------------")
             result_xd, result_xe = XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
@@ -97,14 +97,17 @@ def main():
             result_xedf = pd.DataFrame(result_xe)
             result_xgb = pd.concat([result_xdf, result_xedf], axis=1)
             print("-------------------------------------------------------")
-            data = tf.keras.utils.normalize(data, axis=1)
-            print("------------Neural Network Model Predictions-----------")
-            result_nd, result_ne = NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
-            result_ndf = pd.DataFrame(result_nd)
-            result_nedf = pd.DataFrame(result_ne)
-            result_nn = pd.concat([result_ndf, result_nedf], axis=1)
-            print("-------------------------------------------------------")
-            result = pd.concat([result_xgb, result_nn], axis=0)
+            # data = tf.keras.utils.normalize(data, axis=1)
+            # print("------------Neural Network Model Predictions-----------")
+            # result_nd, result_ne = NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds, td)
+            # result_ndf = pd.DataFrame(result_nd)
+            # result_nedf = pd.DataFrame(result_ne)
+            # result_nn = pd.concat([result_ndf, result_nedf], axis=1)
+            # print("-------------------------------------------------------")
+            result = pd.concat([
+                result_xgb, 
+                # result_nn
+                ], axis=0)
             update_dataframe(result, target_season)
         
         # 내일 경기 돌릴때 사용
