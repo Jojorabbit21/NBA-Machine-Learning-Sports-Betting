@@ -361,6 +361,7 @@ team_index_current = {
     'Boston Celtics': 1,
     'Brooklyn Nets': 2,
     'Charlotte Hornets': 3,
+    'Charlotte Bobcats': 3,
     'Chicago Bulls': 4,
     'Cleveland Cavaliers': 5,
     'Dallas Mavericks': 6,

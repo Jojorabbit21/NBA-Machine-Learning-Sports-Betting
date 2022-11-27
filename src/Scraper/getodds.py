@@ -37,11 +37,9 @@ def scrape_odds(date):
     home_odds = []
     ou = []
     
-    # Team Name Selector
-    # div.webix_ss_body > div.webix_ss_left > div > div > div:nth-child(1) > a > span.hide-until-md
-    # Moneyline Odds Selector
-    # div.webix_ss_body > div.webix_ss_center > div > div:nth-child(2)
+
     
+    # div.webix_ss_body > div.webix_ss_left > div > div > div > a > span.hide-until-md
     print(f"scraping_odds: FETCHING TEAMS...")
     teams = driver.find_elements(By.CSS_SELECTOR, 'div.webix_ss_body > div.webix_ss_left > div > div > div > a > span.hide-until-md')
     for i in range(len(teams)):
